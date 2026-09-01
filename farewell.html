@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealWithTheCow - Farewell Exit Interview</title>
+  <style>
+    :root {
+      --bg-dark: #0a0a0d;
+      --card-bg: #141419;
+      --card-border: #23232c;
+      --accent-red: #ff334b;
+      --accent-yellow: #ffd600;
+      --text-white: #ffffff;
+      --text-muted: #9a9ab0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 680px;
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .video-container {
+      width: 100%;
+      max-width: 540px;
+      aspect-ratio: 16 / 9;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid var(--accent-red);
+      box-shadow: 0 0 25px rgba(255, 51, 75, 0.4);
+      background: #000;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .badge {
+      background: rgba(255, 51, 75, 0.15);
+      color: var(--accent-red);
+      border: 1px solid var(--accent-red);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      padding: 6px 16px;
+      border-radius: 30px;
+      text-transform: uppercase;
+    }
+
+    .headline {
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--accent-yellow);
+      text-shadow: 0 0 20px rgba(255, 214, 0, 0.3);
+    }
+
+    .sub-headline {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.5;
+    }
+
+    .stats-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px dashed #3a3a4c;
+      border-radius: 14px;
+      padding: 20px 24px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .stats-number {
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--accent-red);
+      text-shadow: 0 0 15px rgba(255, 51, 75, 0.5);
+    }
+
+    .stats-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-white);
+    }
+
+    .stats-detail {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .achievement-list {
+      list-style: none;
+      text-align: left;
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      background: #0e0e13;
+      padding: 16px 20px;
+      border-radius: 10px;
+      border: 1px solid #1f1f2a;
+    }
+
+    .achievement-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cow-footer-text {
+      font-size: 12px;
+      color: #666677;
+    }
+
+    .cow-signature {
+      font-weight: 800;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="video-container">
+      <iframe 
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0" 
+        title="Rick Astley - Never Gonna Give You Up" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="badge">EXIT INTERVIEW</div>
+
+    <h1 class="headline">You failed yourself to win this one little challenge.</h1>
+    <p class="sub-headline">
+      The algorithms won. The endless feeds called, and you surrendered. The Polish Cow watches in silence.
+    </p>
+
+    <div class="stats-box">
+      <div class="stats-number" id="time-saved-val">0 Minutes</div>
+      <div class="stats-label">Rescued from the Doomscroll Void</div>
+      <div class="stats-detail" id="time-saved-detail">
+        Calculating your intercepted productivity...
+      </div>
+    </div>
+
+    <ul class="achievement-list">
+      <li>🌾 <strong>Touch Grass:</strong> Recommended immediately.</li>
+      <li>🧠 <strong>Attention Span:</strong> Currently in critical condition.</li>
+      <li>🐮 <strong>The Cow's Verdict:</strong> Disappointed, but not surprised.</li>
+    </ul>
+
+    <p class="cow-footer-text">
+      Powered by <span class="cow-signature">DealWithTheCow</span>. The tab-nuking guardian you couldn't handle.
+    </p>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const savedMinutes = parseInt(urlParams.get('saved'), 10) || 0;
+
+    const valEl = document.getElementById('time-saved-val');
+    const detailEl = document.getElementById('time-saved-detail');
+
+    if (savedMinutes >= 60) {
+      const hours = Math.floor(savedMinutes / 60);
+      const mins = savedMinutes % 60;
+      valEl.textContent = `${hours}h ${mins}m`;
+    } else {
+      valEl.textContent = `${savedMinutes} Minutes`;
+    }
+
+    if (savedMinutes > 0) {
+      detailEl.textContent = `Before giving up, you intercepted ${Math.round(savedMinutes / 15)} doomscroll sessions and saved ${savedMinutes} minutes of your mortal life.`;
+    } else {
+      detailEl.textContent = `You gave up before the Cow could even save a single minute. Tragic.`;
+    }
+  </script>
+</body>
+</html>

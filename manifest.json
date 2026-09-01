@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "DealWithTheCow - Chaotic Doomscroll Blocker",
+  "version": "1.0.0",
+  "description": "A chaotic doomscroll blocker made by Debadreet Banik",
+  "permissions": [
+    "tabs",
+    "storage",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "*://*.instagram.com/*",
+    "*://*.youtube.com/*",
+    "*://*.tiktok.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.instagram.com/*",
+        "*://*.youtube.com/*",
+        "*://*.tiktok.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["overlay.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/*",
+        "assets/audio/*",
+        "assets/images/*",
+        "overlay.css",
+        "farewell.html"
+      ],
+      "matches": [
+        "*://*.instagram.com/*",
+        "*://*.youtube.com/*",
+        "*://*.tiktok.com/*"
+      ]
+    }
+  ]
+}
